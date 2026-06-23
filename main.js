@@ -26,6 +26,7 @@ const decimal = document.querySelector('#decimal');
 digits.forEach(digit => digit.addEventListener('click', () => {
 
   if (state === 'first') {
+    clear.textContent = 'AC';
     firstNum += digit.textContent;
     display.textContent = firstNum;
   };
@@ -77,6 +78,7 @@ clear.addEventListener('click', () => {
   firstNum = '';
   secondNum = '';
   operatorSign = '';
+  clear.textContent = 'C';
 });
 
 backspace.addEventListener('click', () => {
@@ -90,7 +92,8 @@ backspace.addEventListener('click', () => {
     let length = secondNum.length;
     secondNum = secondNum.substring(0, (length - 1));
     display.textContent = secondNum;
-  }; 
+  };
+  
 });
 
 
