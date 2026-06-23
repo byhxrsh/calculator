@@ -20,6 +20,7 @@ const calculate = document.querySelector('.calculate');
 const operators = document.querySelectorAll('.operator')
 const display = document.querySelector('#display');
 const clear = document.querySelector('#AC');
+const backspace = document.querySelector('#backspace')
 
 digits.forEach(digit => digit.addEventListener('click', () => {
 
@@ -36,6 +37,12 @@ digits.forEach(digit => digit.addEventListener('click', () => {
 }));
 
 operators.forEach(operator => operator.addEventListener('click', () => {
+  if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
+    alert(`bruh! you weren't supposed to divide by zero`);
+    display.textContent = 're-enter second number'
+    secondNum = '';
+  }; 
+
   if (firstNum != '' && secondNum != '' && operatorSign != '') {
     firstNum = operate(firstNum, secondNum, operatorSign);
     secondNum = '';
@@ -50,9 +57,17 @@ operators.forEach(operator => operator.addEventListener('click', () => {
 }));
 
 calculate.addEventListener('click', () => {
-  firstNum = operate(firstNum, secondNum, operatorSign);
-  secondNum = '';
-  display.textContent = firstNum;
+
+  if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
+    alert(`bruh! you weren't supposed to divide by zero`);
+    display.textContent = 're-enter second number'
+    secondNum = '';
+  } else {
+    firstNum = operate(firstNum, secondNum, operatorSign);
+    secondNum = '';
+    display.textContent = firstNum;
+  };
+
 });
 
 clear.addEventListener('click', () => {
@@ -61,4 +76,18 @@ clear.addEventListener('click', () => {
   firstNum = '';
   secondNum = '';
   operatorSign = '';
+});
+
+backspace.addEventListener('click', () => {
+  if (firstNum != '' && operatorSign === '' && secondNum === '') {
+    let length = firstNum.length;
+    firstNum = firstNum.substring(0, (length - 1));
+    display.textContent = firstNum;
+  }; 
+  
+  if (firstNum != '' && operatorSign != '' && secondNum != '') {
+    let length = secondNum.length;
+    secondNum = secondNum.substring(0, (length - 1));
+    display.textContent = secondNum;
+  }; 
 });
