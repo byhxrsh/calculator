@@ -39,8 +39,8 @@ digits.forEach(digit => digit.addEventListener('click', () => {
 
 operators.forEach(operator => operator.addEventListener('click', () => {
   if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
-    alert(`bruh! you weren't supposed to divide by zero`);
-    display.textContent = 're-enter second number'
+    alert(`bruh! you weren't supposed to divide it by zero`);
+    display.textContent = 're-enter last number'
     secondNum = '';
   }; 
 
@@ -60,8 +60,8 @@ operators.forEach(operator => operator.addEventListener('click', () => {
 calculate.addEventListener('click', () => {
 
   if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
-    alert(`bruh! you weren't supposed to divide by zero`);
-    display.textContent = 're-enter second number'
+    alert(`bruh! you weren't supposed to divide it by zero`);
+    display.textContent = 're-enter last number'
     secondNum = '';
   } else {
     firstNum = operate(firstNum, secondNum, operatorSign);
