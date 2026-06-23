@@ -20,7 +20,8 @@ const calculate = document.querySelector('.calculate');
 const operators = document.querySelectorAll('.operator')
 const display = document.querySelector('#display');
 const clear = document.querySelector('#AC');
-const backspace = document.querySelector('#backspace')
+const backspace = document.querySelector('#backspace');
+const decimal = document.querySelector('#decimal');
 
 digits.forEach(digit => digit.addEventListener('click', () => {
 
@@ -90,4 +91,19 @@ backspace.addEventListener('click', () => {
     secondNum = secondNum.substring(0, (length - 1));
     display.textContent = secondNum;
   }; 
+});
+
+
+decimal.addEventListener('click', () => {
+
+  if (state === 'first' && !firstNum.includes('.')) {
+    firstNum += decimal.textContent;
+    display.textContent = firstNum;
+  };
+  
+  if (state === 'second' && !secondNum.includes('.')) {
+    secondNum += decimal.textContent;
+    display.textContent = secondNum;
+  };
+  
 });
