@@ -169,3 +169,19 @@ document.addEventListener('keydown', (event) => {
 
   }
 });
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === '.') {
+
+    if (state === 'first' && !firstNum.includes('.')) {
+      firstNum += event.key;
+      display.textContent = firstNum;
+    };
+  
+    if (state === 'second' && !secondNum.includes('.')) {
+      secondNum += event.key;
+      display.textContent = secondNum;
+    }; 
+  };
+
+});
