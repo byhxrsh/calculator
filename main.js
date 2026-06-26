@@ -206,3 +206,14 @@ document.addEventListener('keydown', (event) => {
 
   };
 });
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'c') {
+    state = 'first';
+    display.textContent = 0;
+    firstNum = '';
+    secondNum = '';
+    operatorSign = '';
+    clear.textContent = 'C';
+  };
+});
