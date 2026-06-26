@@ -63,7 +63,9 @@ calculate.addEventListener('click', () => {
     alert(`bruh! you weren't supposed to divide it by zero`);
     display.textContent = 're-enter last number'
     secondNum = '';
-  } else {
+  }; 
+
+  if (firstNum != '' && operatorSign != '' && secondNum != '') {
     firstNum = operate(firstNum, secondNum, operatorSign);
     secondNum = '';
     display.textContent = firstNum;
@@ -113,7 +115,6 @@ decimal.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
 
   if (event.key >= 0 && event.key <= 9) {
-    event.preventDefault();
 
     if (state === 'first') {
       clear.textContent = 'AC';
@@ -125,6 +126,7 @@ document.addEventListener('keydown', (event) => {
       secondNum += event.key;
       display.textContent = secondNum;
     };
+
   };
 
 });
@@ -184,4 +186,22 @@ document.addEventListener('keydown', (event) => {
     }; 
   };
 
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+
+    if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
+      alert(`bruh! you weren't supposed to divide it by zero`);
+      display.textContent = 're-enter last number'
+      secondNum = '';
+    }; 
+    
+    if (firstNum != '' && operatorSign != '' && secondNum != '') {
+      firstNum = operate(firstNum, secondNum, operatorSign);
+      secondNum = '';
+      display.textContent = firstNum;
+    };  
+
+  };
 });
