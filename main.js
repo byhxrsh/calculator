@@ -115,7 +115,7 @@ document.addEventListener('keydown', (event) => {
 
   if (event.key >= 0 && event.key <= 9) {
     event.preventDefault();
-    
+
     if (state === 'first') {
       clear.textContent = 'AC';
       firstNum += event.key;
@@ -129,3 +129,21 @@ document.addEventListener('keydown', (event) => {
   };
 
 });
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Backspace') {
+
+    if (firstNum != '' && operatorSign === '' && secondNum === '') {
+      let length = firstNum.length;
+      firstNum = firstNum.substring(0, (length - 1));
+      display.textContent = firstNum;
+    }; 
+  
+    if (firstNum != '' && operatorSign != '' && secondNum != '') {
+      let length = secondNum.length;
+      secondNum = secondNum.substring(0, (length - 1));
+      display.textContent = secondNum;
+    };
+
+  }
+}); 
