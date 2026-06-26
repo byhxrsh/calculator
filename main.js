@@ -157,7 +157,7 @@ document.addEventListener('keydown', (event) => {
       display.textContent = 're-enter last number'
       secondNum = '';
     }; 
-
+    
     if (firstNum != '' && secondNum != '' && operatorSign != '') {
       firstNum = operate(firstNum, secondNum, operatorSign);
       secondNum = '';
@@ -189,6 +189,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
+  event.preventDefault();
   if (event.key === 'Enter') {
 
     if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
