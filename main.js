@@ -110,3 +110,22 @@ decimal.addEventListener('click', () => {
   };
   
 });
+
+document.addEventListener('keydown', (event) => {
+
+  if (event.key >= 0 && event.key <= 9) {
+    event.preventDefault();
+    
+    if (state === 'first') {
+      clear.textContent = 'AC';
+      firstNum += event.key;
+      display.textContent = firstNum;
+    };
+  
+    if (state === 'second') {
+      secondNum += event.key;
+      display.textContent = secondNum;
+    };
+  };
+
+});
