@@ -55,7 +55,6 @@ operators.forEach(operator => operator.addEventListener('click', () => {
     operatorSign = operator.textContent;
     state = 'second';
   };
-  // display.textContent = operatorSign;
 }));
 
 calculate.addEventListener('click', () => {
@@ -147,3 +146,26 @@ document.addEventListener('keydown', (event) => {
 
   }
 }); 
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === '*' || event.key === '+' || event.key === '-' || event.key === '/') {
+
+    if (firstNum != '' && operatorSign === '/' && secondNum === '0') {
+      alert(`bruh! you weren't supposed to divide it by zero`);
+      display.textContent = 're-enter last number'
+      secondNum = '';
+    }; 
+
+    if (firstNum != '' && secondNum != '' && operatorSign != '') {
+      firstNum = operate(firstNum, secondNum, operatorSign);
+      secondNum = '';
+      display.textContent = firstNum;
+      operatorSign = event.key;
+      state = 'second';
+    } else {
+      operatorSign = event.key;
+      state = 'second';
+    };
+
+  }
+});
