@@ -11,7 +11,7 @@ h1 {
 }
 
 #structure {
-    border: dashed 4px rgb(107, 106, 15);
+    border: double 4px rgb(66, 65, 10);
     border-radius: 20px;
     padding: 4px;
     display: flex;
